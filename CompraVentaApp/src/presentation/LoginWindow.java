@@ -6,6 +6,7 @@
 
 package presentation;
 
+import controllers.LoginWindowController;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -20,6 +21,7 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+        _Controller = new LoginWindowController();
     }
 
     /**
@@ -62,6 +64,11 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel3.setText("Login as:");
 
         jButtonLogin.setText("Login");
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +130,10 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUserNameActionPerformed
 
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        _Controller.login(jTextFieldUserName.getText(), jTextFieldPassword.getText(), this);
+    }//GEN-LAST:event_jButtonLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -167,6 +178,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUserName;
     // End of variables declaration//GEN-END:variables
+   private LoginWindowController _Controller;
     public JTextField getUserName(){
         return jTextFieldPassword;
     }

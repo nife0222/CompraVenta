@@ -6,11 +6,15 @@
 
 package daoClases;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sqlAccess.SQLConnector;
 import sqlTables.ExternalUser;
 
@@ -29,24 +33,30 @@ public class ExternalUsersDAO {
     }
 
     private ExternalUser loginAsAdministrator(String pUserName, String pPassword) {
-        Connection connection = SQLConnector.createConnection();
-        PreparedStatement sqlInstruction;
-        ResultSet results;
-        ArrayList <ExternalUser> administrators = new ArrayList();
-         try{
-            String sqlWhereClause = "ENCRYPTBYPASSPHRASE('password', @Pass)";
-            sqlInstruction = connection.prepareStatement("SELECT * FROM ExternalUsers"+sqlWhereClause);
-            results = sqlInstruction.executeQuery();
-            ExternalUser admin;
-            while(results.next()){
-                admin = new ExternalUser(results.getString("userName"),results.getString("password"),0);
-                administrators.add(admin);
-            }
-            connection.close();
-            return administrators.get(0);
-        } 
-        catch(SQLException e){
+        if(validateLogin (pUserName,pPassword,0)){
+            return new ExternalUser (pUserName,pPassword,0);
+        }
+        else{
             return null;
+        }
+        
+     
+    }
+    private boolean validateLogin(String pUsername,String pPassword, int pTypeOfUser){
+        
+        try {
+            Connection connection = SQLConnector.createConnection();
+            CallableStatement procedure = connection.prepareCall("{call validatePassword(?,?,?)}");
+            procedure.setString(1, pPassword);
+            procedure.setString(2, pUsername);
+            procedure.setInt(3,0);
+            procedure.registerOutParameter(1, Types.INTEGER);
+            procedure.execute();
+            int returnValue = procedure.getInt(1);
+            connection.close();
+            return returnValue == 0;
+        } catch (SQLException ex) {
+            return false;
         }
         
     }
