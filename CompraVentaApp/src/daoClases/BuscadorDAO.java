@@ -14,7 +14,7 @@ import javax.sql.RowSet;
  * @author Luis Diego
  */
 public interface BuscadorDAO {
-     public int insertarFila(Object objetoAInsertar);
+    public int insertarFila(Object objetoAInsertar);
     
     // Remove a person
     public boolean eliminarFila(Object pObjeto);
