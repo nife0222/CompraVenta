@@ -30,7 +30,7 @@ public class SQLOperator {
     
     public boolean tryToSignUp(Participant participant){
         ParticipantDAO participantDAO = new ParticipantDAO();
-        return participantDAO.insertarFila(participant); // false si no se inserto porque ya existia el usuario.
+        return participantDAO.insertrParticipant(participant); // false si no se inserto porque ya existia el usuario.
     }
     
     public ArrayList<Object> getAllParticipants(){

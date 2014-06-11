@@ -77,5 +77,14 @@ public class Participant {
     public void setEmail(String _email) {
         this._email = _email;
     }
+
+    public boolean isIsDisabled() {
+        return _isDisabled;
+    }
+
+    public void setIsDisabled(boolean _isDisabled) {
+        this._isDisabled = _isDisabled;
+    }
+    
     
 }
