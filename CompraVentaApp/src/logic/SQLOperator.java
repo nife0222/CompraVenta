@@ -7,8 +7,10 @@
 package logic;
 
 import daoClases.ExternalUsersDAO;
+import daoClases.ParticipantDAO;
 import java.util.ArrayList;
 import sqlTables.ExternalUser;
+import sqlTables.Participant;
 
 /**
  *
@@ -26,15 +28,14 @@ public class SQLOperator {
         return externalUserDAO.tryToChangePassword(pUserName,pPassword,pTypeOfUser);
     }
     
-    public boolean tryToSignUp(){
-        
-        return false;
+    public boolean tryToSignUp(Participant participant){
+        ParticipantDAO participantDAO = new ParticipantDAO();
+        return participantDAO.insertarFila(participant); // false si no se inserto porque ya existia el usuario.
     }
     
     public ArrayList<Object> getAllParticipants(){
-        //ParticipantDAO participantDAO = new ParticipantDAO();
-        //return participantDAO.getAllParticipants();
-        return null;
+        ParticipantDAO participantDAO = new ParticipantDAO();
+        return participantDAO.getAllParticipants();
     }
     
 }
