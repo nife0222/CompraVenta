@@ -14,6 +14,7 @@ import presentation.FormNewPasswordAgent;
  */
 public class FormNewPasswordAgentController {
     
+    
     public FormNewPasswordAgentController(){
         
     }

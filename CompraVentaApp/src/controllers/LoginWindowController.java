@@ -6,6 +6,7 @@
 
 package controllers;
 
+import javax.swing.JOptionPane;
 import logic.SQLOperator;
 import presentation.AgentWindow;
 import presentation.LoginWindow;
@@ -25,7 +26,14 @@ public class LoginWindowController {
             operator.login(pUserName, pPassword, 0);
         }
         else if (typeOfUser.equals("Agent")){
-            showAgentWindow(operator.login(pUserName, pPassword, 1));
+            ExternalUser user = operator.login(pUserName, pPassword, 1);
+            if(user != null){
+                showAgentWindow(user);
+                pLoginWindow.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(pLoginWindow, "Wrong user or password, try again");
+            }
         }
         
     }

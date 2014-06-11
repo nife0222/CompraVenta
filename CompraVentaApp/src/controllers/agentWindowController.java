@@ -17,10 +17,10 @@ import sqlTables.ExternalUser;
 public class agentWindowController {
     
     private SQLOperator _operator;
-    private ExternalUser _user;
+    //private ExternalUser _user;
             
     public agentWindowController(ExternalUser user){
-        _user = user;
+        ///_user = user;
     }
     
     public void changePassword(){

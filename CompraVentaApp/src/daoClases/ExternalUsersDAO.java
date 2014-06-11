@@ -35,15 +35,6 @@ public class ExternalUsersDAO {
         
     }
     
-    private ExternalUser loginAsAgent(String pUserName, String pPassword){
-        if(validateLogin (pUserName,pPassword,1)){
-            return new ExternalUser (pUserName,pPassword,1);
-        }
-        else{
-            return null;
-        }
-    }
-
     private ExternalUser loginAsAdministrator(String pUserName, String pPassword) {
         if(validateLogin (pUserName,pPassword,0)){
             return new ExternalUser (pUserName,pPassword,0);
@@ -54,6 +45,17 @@ public class ExternalUsersDAO {
         
      
     }
+    
+    private ExternalUser loginAsAgent(String pUserName, String pPassword){
+        if(validateLogin (pUserName,pPassword,1)){
+            return new ExternalUser (pUserName,pPassword,1);
+        }
+        else{
+            return null;
+        }
+    }
+
+    
     private boolean validateLogin(String pUsername,String pPassword, int pTypeOfUser){
         
         try {

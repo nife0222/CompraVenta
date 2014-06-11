@@ -32,15 +32,15 @@ public class AgentWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jButtonChangePassword = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agent");
 
-        jButton1.setText("Change password");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonChangePassword.setText("Change password");
+        jButtonChangePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonChangePasswordActionPerformed(evt);
             }
         });
 
@@ -49,24 +49,26 @@ public class AgentWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addContainerGap(479, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButtonChangePassword)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jButton1)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jButtonChangePassword)
+                .addContainerGap(304, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePasswordActionPerformed
+        this.setVisible(false);
+        _controller.changePassword();
+        this.setVisible(true);
+    }//GEN-LAST:event_jButtonChangePasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,6 +106,6 @@ public class AgentWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonChangePassword;
     // End of variables declaration//GEN-END:variables
 }
