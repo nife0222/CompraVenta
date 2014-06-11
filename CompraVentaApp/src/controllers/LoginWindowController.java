@@ -6,6 +6,7 @@
 
 package controllers;
 
+import logic.SQLOperator;
 import presentation.LoginWindow;
 
 /**
@@ -18,16 +19,29 @@ public class LoginWindowController {
     public void login(String pUserName,String pPassword, LoginWindow pLoginWindow){
         String typeOfUser = pLoginWindow.getTypeOfUser().getSelectedItem().toString();
         if(typeOfUser.equals("Administrator")){
-            loginAsAdministrator();
+            loginAsAdministrator(pUserName,pPassword);
             
         }
         
     }
 
-    private void loginAsAdministrator() {
-        Ope
+    
+
+    private void loginAsAdministrator(String pUserName, String pPassword) {
+        SQLOperator operator = new SQLOperator();
+        boolean success = operator.loginAsAdministrator(pUserName,pPassword);
+        if(success == true){
+            showAdministratorWindow(); 
+        }
+        else{
+            System.out.println("Error");
+        }
         
         
+    }
+
+    private void showAdministratorWindow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

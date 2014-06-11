@@ -15,5 +15,9 @@ import java.sql.Date;
  * @author Nicolas
  */
 public class SQLOperator {
+
+    public boolean loginAsAdministrator(String pUserName, String pPassword) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
