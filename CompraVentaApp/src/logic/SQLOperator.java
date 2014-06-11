@@ -6,18 +6,18 @@
 
 package logic;
 
-import daoClasses.*;
-import java.util.ArrayList;
-import sqlTables.*;
-import java.sql.Date;
+import daoClases.ExternalUsersDAO;
+import sqlTables.ExternalUser;
+
 /**
  *
  * @author Nicolas
  */
 public class SQLOperator {
 
-    public boolean loginAsAdministrator(String pUserName, String pPassword) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ExternalUser loginAsAdministrator(String pUserName, String pPassword) {
+        ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
+        return externalUserDAO.login(pUserName,pPassword,0);
     }
     
 }

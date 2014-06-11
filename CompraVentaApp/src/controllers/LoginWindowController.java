@@ -8,6 +8,7 @@ package controllers;
 
 import logic.SQLOperator;
 import presentation.LoginWindow;
+import sqlTables.ExternalUser;
 
 /**
  *
@@ -29,8 +30,8 @@ public class LoginWindowController {
 
     private void loginAsAdministrator(String pUserName, String pPassword) {
         SQLOperator operator = new SQLOperator();
-        boolean success = operator.loginAsAdministrator(pUserName,pPassword);
-        if(success == true){
+        ExternalUser administrator = operator.loginAsAdministrator(pUserName,pPassword);
+        if(administrator != null){
             showAdministratorWindow(); 
         }
         else{
