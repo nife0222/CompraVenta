@@ -6,17 +6,20 @@
 
 package presentation;
 
+import controllers.FormNewPasswordAgentController;
+
 /**
  *
  * @author Nicolas
  */
 public class formNewPasswordAgent extends javax.swing.JDialog {
-
+    private FormNewPasswordAgentController _controller;
     /**
      * Creates new form formNewPasswordAgent
      */
     public formNewPasswordAgent(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        _controller = new FormNewPasswordAgentController();
         initComponents();
     }
 
