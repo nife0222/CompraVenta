@@ -34,7 +34,7 @@ public class ExternalUsersDAO {
         ResultSet results;
         ArrayList <ExternalUser> administrators = new ArrayList();
          try{
-            String sqlWhereClause = " WHERE password = convert(varbinary(255),pwdencrypt("+pPassword+"))";
+            String sqlWhereClause = "ENCRYPTBYPASSPHRASE('password', @Pass)";
             sqlInstruction = connection.prepareStatement("SELECT * FROM ExternalUsers"+sqlWhereClause);
             results = sqlInstruction.executeQuery();
             ExternalUser admin;
