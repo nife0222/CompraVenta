@@ -6,6 +6,9 @@
 
 package presentation;
 
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author LuisDiego
@@ -164,4 +167,14 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUserName;
     // End of variables declaration//GEN-END:variables
+    public JTextField getUserName(){
+        return jTextFieldPassword;
+    }
+    public JTextField getPassword(){
+        return jTextFieldPassword;
+    }
+    public JComboBox getTypeOfUser(){
+        return jComboBox1;
+    }
+
 }

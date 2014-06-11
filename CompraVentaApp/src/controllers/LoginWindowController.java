@@ -6,11 +6,18 @@
 
 package controllers;
 
+import presentation.LoginWindow;
+
 /**
  *
  * @author LuisDiego
  */
 public class LoginWindowController {
+    
+    
+    public void login(String pUserName,String pPassword, LoginWindow pLoginWindow){
+        if(pLoginWindow)
+    }
     
     
     
