@@ -33,6 +33,9 @@ public class AgentWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonChangePassword = new javax.swing.JButton();
+        jButtonCreateNewUserAccount = new javax.swing.JButton();
+        jButtonUsersMoneyDeposit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agent");
@@ -44,31 +47,68 @@ public class AgentWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonCreateNewUserAccount.setText("Create new user account");
+        jButtonCreateNewUserAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateNewUserAccountActionPerformed(evt);
+            }
+        });
+
+        jButtonUsersMoneyDeposit.setText("Make user money deposit");
+        jButtonUsersMoneyDeposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUsersMoneyDepositActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Agent Options");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonChangePassword)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonChangePassword)
+                            .addComponent(jButtonCreateNewUserAccount)
+                            .addComponent(jButtonUsersMoneyDeposit)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel1)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
                 .addComponent(jButtonChangePassword)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCreateNewUserAccount)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonUsersMoneyDeposit)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePasswordActionPerformed
-        this.setVisible(false);
-        _controller.changePassword();
-        this.setVisible(true);
+        _controller.changePassword(this);
     }//GEN-LAST:event_jButtonChangePasswordActionPerformed
+
+    private void jButtonCreateNewUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateNewUserAccountActionPerformed
+        _controller.createNewUserAccount(this);
+    }//GEN-LAST:event_jButtonCreateNewUserAccountActionPerformed
+
+    private void jButtonUsersMoneyDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsersMoneyDepositActionPerformed
+        _controller.makeUserMoneyDeposit(this);
+    }//GEN-LAST:event_jButtonUsersMoneyDepositActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,5 +147,8 @@ public class AgentWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChangePassword;
+    private javax.swing.JButton jButtonCreateNewUserAccount;
+    private javax.swing.JButton jButtonUsersMoneyDeposit;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

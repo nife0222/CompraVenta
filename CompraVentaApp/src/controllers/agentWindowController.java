@@ -6,7 +6,10 @@
 
 package controllers;
 
+import javax.swing.JOptionPane;
 import logic.SQLOperator;
+import presentation.AgentWindow;
+import presentation.FormCreateNewUserAccount;
 import presentation.FormNewPasswordAgent;
 import sqlTables.ExternalUser;
 
@@ -17,16 +20,47 @@ import sqlTables.ExternalUser;
 public class agentWindowController {
     
     private SQLOperator _operator;
-    //private ExternalUser _user;
+    private ExternalUser _user;
             
     public agentWindowController(ExternalUser user){
-        ///_user = user;
+        _user = user;
     }
     
-    public void changePassword(){
-        FormNewPasswordAgent forma = new FormNewPasswordAgent(null,true);
+    public void createNewUserAccount (AgentWindow window){
+        window.setVisible(false);
+        FormCreateNewUserAccount forma = new FormCreateNewUserAccount(window,true);
         forma.setVisible(true);
+        window.setVisible(true);
     }
     
+    public void changePassword(AgentWindow window){
+        window.setVisible(false);
+        FormNewPasswordAgent forma = new FormNewPasswordAgent(null,true, _user);
+        forma.setVisible(true);
+        window.setVisible(true);
+    }
     
+    public void makeUserMoneyDeposit(AgentWindow window){
+        Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
+        
+        
+    }
+    
+    private Object preguntarPorOpcionDeLista(Object[] posibilidades) {
+        Object element = new Object();
+        try{
+            element =      JOptionPane.showInputDialog(
+                    null,
+                    "Seleccione una opcion",
+                    "",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    posibilidades,posibilidades[0]);
+                    
+
+        }catch (Exception E){
+            element = null;
+        }
+        return element;   
+    }
 }

@@ -9,6 +9,7 @@ package presentation;
 import controllers.FormNewPasswordAgentController;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import sqlTables.ExternalUser;
 
 /**
  *
@@ -19,9 +20,9 @@ public class FormNewPasswordAgent extends javax.swing.JDialog {
     /**
      * Creates new form formNewPasswordAgent
      */
-    public FormNewPasswordAgent(java.awt.Frame parent, boolean modal) {
+    public FormNewPasswordAgent(java.awt.Frame parent, boolean modal, ExternalUser user) {
         super(parent, modal);
-        _controller = new FormNewPasswordAgentController();
+        _controller = new FormNewPasswordAgentController(user);
         initComponents();
     }
 
@@ -151,7 +152,7 @@ public class FormNewPasswordAgent extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormNewPasswordAgent dialog = new FormNewPasswordAgent(new javax.swing.JFrame(), true);
+                FormNewPasswordAgent dialog = new FormNewPasswordAgent(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

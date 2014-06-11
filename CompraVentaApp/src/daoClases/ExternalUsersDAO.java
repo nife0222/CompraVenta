@@ -75,7 +75,18 @@ public class ExternalUsersDAO {
         
     }
         
-    
+    public boolean tryToChangePassword(String pUsername,String pPassword,int pTypeOfUser){
+        try {
+            Connection connection = SQLConnector.createConnection();
+            
+            //Aqui debo buscar en la BD este ususario y cambiar su contrasena por pPassword
+            
+            connection.close();
+            return 0 == 0;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
 
     
 }

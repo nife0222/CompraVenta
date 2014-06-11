@@ -7,6 +7,7 @@
 package logic;
 
 import daoClases.ExternalUsersDAO;
+import java.util.ArrayList;
 import sqlTables.ExternalUser;
 
 /**
@@ -18,6 +19,22 @@ public class SQLOperator {
     public ExternalUser login(String pUserName, String pPassword, int pTypeOfUser) {
         ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
         return externalUserDAO.login(pUserName,pPassword,pTypeOfUser);
+    }
+    
+    public boolean tryToChangePassword(String pUserName, String pPassword, int pTypeOfUser){
+        ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
+        return externalUserDAO.tryToChangePassword(pUserName,pPassword,pTypeOfUser);
+    }
+    
+    public boolean tryToSignUp(){
+        
+        return false;
+    }
+    
+    public ArrayList<Object> getAllParticipants(){
+        //ParticipantDAO participantDAO = new ParticipantDAO();
+        //return participantDAO.getAllParticipants();
+        return null;
     }
     
 }
