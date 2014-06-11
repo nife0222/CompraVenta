@@ -20,40 +20,17 @@ public class LoginWindowController {
     
     public void login(String pUserName,String pPassword, LoginWindow pLoginWindow){
         String typeOfUser = pLoginWindow.getTypeOfUser().getSelectedItem().toString();
+        SQLOperator operator = new SQLOperator();
         if(typeOfUser.equals("Administrator")){
-            loginAsAdministrator(pUserName,pPassword);
+            operator.login(pUserName, pPassword, 0);
         }
         else if (typeOfUser.equals("Agent")){
-            loginAsAgent(pUserName,pPassword);
+            showAgentWindow(operator.login(pUserName, pPassword, 1));
         }
         
     }
     
-    private void loginAsAgent(String pUserName, String pPassword) {
-        SQLOperator operator = new SQLOperator();
-        ExternalUser agent = operator.loginAsAgent(pUserName,pPassword);
-        if(agent != null){
-            showAgentWindow();
-        }
-        else{
-            System.out.println("Error");
-        }
-        
-        
-    }
-
-    private void loginAsAdministrator(String pUserName, String pPassword) {
-        SQLOperator operator = new SQLOperator();
-        ExternalUser administrator = operator.loginAsAdministrator(pUserName,pPassword);
-        if(administrator != null){
-            showAdministratorWindow(); 
-        }
-        else{
-            System.out.println("Error");
-        }
-        
-        
-    }
+    
 
     private void showAdministratorWindow() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

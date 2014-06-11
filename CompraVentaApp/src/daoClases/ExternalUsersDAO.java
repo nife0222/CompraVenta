@@ -36,23 +36,10 @@ public class ExternalUsersDAO {
     }
     
     private ExternalUser loginAsAgent(String pUserName, String pPassword){
-        Connection connection = SQLConnector.createConnection();
-        PreparedStatement sqlInstruction;
-        ResultSet results;
-        ArrayList <ExternalUser> agents = new ArrayList();
-         try{
-            String sqlWhereClause = "ENCRYPTBYPASSPHRASE('password', @Pass)";
-            sqlInstruction = connection.prepareStatement("SELECT * FROM ExternalUsers"+sqlWhereClause);
-            results = sqlInstruction.executeQuery();
-            ExternalUser agent;
-            while(results.next()){
-                agent = new ExternalUser(results.getString("userName"),results.getString("password"),1);
-                agents.add(agent);
-            }
-            connection.close();
-            return agents.get(0);
-        } 
-        catch(SQLException e){
+        if(validateLogin (pUserName,pPassword,1)){
+            return new ExternalUser (pUserName,pPassword,1);
+        }
+        else{
             return null;
         }
     }

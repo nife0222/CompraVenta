@@ -15,14 +15,9 @@ import sqlTables.ExternalUser;
  */
 public class SQLOperator {
 
-    public ExternalUser loginAsAdministrator(String pUserName, String pPassword) {
+    public ExternalUser login(String pUserName, String pPassword, int pTypeOfUser) {
         ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
-        return externalUserDAO.login(pUserName,pPassword,0);
-    }
-    
-    public ExternalUser loginAsAgent(String pUserName, String pPassword){
-        ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
-        return externalUserDAO.login(pUserName,pPassword,1);
+        return externalUserDAO.login(pUserName,pPassword,pTypeOfUser);
     }
     
 }
