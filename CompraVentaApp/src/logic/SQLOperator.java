@@ -20,4 +20,9 @@ public class SQLOperator {
         return externalUserDAO.login(pUserName,pPassword,0);
     }
     
+    public ExternalUser loginAsAgent(String pUserName, String pPassword){
+        ExternalUsersDAO externalUserDAO = new ExternalUsersDAO();
+        return externalUserDAO.login(pUserName,pPassword,1);
+    }
+    
 }

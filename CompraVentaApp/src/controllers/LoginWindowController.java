@@ -7,6 +7,7 @@
 package controllers;
 
 import logic.SQLOperator;
+import presentation.AgentWindow;
 import presentation.LoginWindow;
 import sqlTables.ExternalUser;
 
@@ -21,12 +22,25 @@ public class LoginWindowController {
         String typeOfUser = pLoginWindow.getTypeOfUser().getSelectedItem().toString();
         if(typeOfUser.equals("Administrator")){
             loginAsAdministrator(pUserName,pPassword);
-            
+        }
+        else if (typeOfUser.equals("Agent")){
+            loginAsAgent(pUserName,pPassword);
         }
         
     }
-
     
+    private void loginAsAgent(String pUserName, String pPassword) {
+        SQLOperator operator = new SQLOperator();
+        ExternalUser agent = operator.loginAsAgent(pUserName,pPassword);
+        if(agent != null){
+            showAgentWindow();
+        }
+        else{
+            System.out.println("Error");
+        }
+        
+        
+    }
 
     private void loginAsAdministrator(String pUserName, String pPassword) {
         SQLOperator operator = new SQLOperator();
@@ -45,7 +59,11 @@ public class LoginWindowController {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+     private void showAgentWindow(ExternalUser user) { //Estos metodos no deberian recibir por parametro el ExternalUser?
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AgentWindow agentWindow  = new AgentWindow(user);
+        agentWindow.show();
+    }
     
     
 }
