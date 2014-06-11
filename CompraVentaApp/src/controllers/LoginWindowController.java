@@ -16,7 +16,16 @@ public class LoginWindowController {
     
     
     public void login(String pUserName,String pPassword, LoginWindow pLoginWindow){
-        if(pLoginWindow)
+        String typeOfUser = pLoginWindow.getTypeOfUser().getSelectedItem().toString();
+        if(typeOfUser.equals("Administrator")){
+            loginAsAdministrator();
+            
+        }
+        
+    }
+
+    private void loginAsAdministrator() {
+        
     }
     
     
