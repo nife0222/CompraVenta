@@ -6,6 +6,8 @@
 
 package controllers;
 
+import presentation.FormNewPasswordAgent;
+
 /**
  *
  * @author Nicolas
@@ -13,6 +15,15 @@ package controllers;
 public class FormNewPasswordAgentController {
     
     public FormNewPasswordAgentController(){
+        
+    }
+    
+    public void tryToChangePassword(FormNewPasswordAgent form){
+        String oldPassword = form.getjTextFieldOldPassword().getText();
+        String newPassword1 = form.getjTextFieldNewPassword().getText();
+        String newPassword2 = form.getjTextFieldConfirmNewPassword().getText();
+        
+        
         
     }
 }

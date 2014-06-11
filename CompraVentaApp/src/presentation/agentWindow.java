@@ -6,16 +6,19 @@
 
 package presentation;
 
+import controllers.agentWindowController;
+
 /**
  *
  * @author Nicolas
  */
 public class agentWindow extends javax.swing.JFrame {
-
+    private agentWindowController _controller;
     /**
      * Creates new form agentWindow
      */
     public agentWindow() {
+        _controller = new agentWindowController();
         initComponents();
     }
 

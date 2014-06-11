@@ -7,17 +7,19 @@
 package presentation;
 
 import controllers.FormNewPasswordAgentController;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Nicolas
  */
-public class formNewPasswordAgent extends javax.swing.JDialog {
+public class FormNewPasswordAgent extends javax.swing.JDialog {
     private FormNewPasswordAgentController _controller;
     /**
      * Creates new form formNewPasswordAgent
      */
-    public formNewPasswordAgent(java.awt.Frame parent, boolean modal) {
+    public FormNewPasswordAgent(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         _controller = new FormNewPasswordAgentController();
         initComponents();
@@ -116,7 +118,7 @@ public class formNewPasswordAgent extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldConfirmNewPasswordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        _controller.tryToChangePassword(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -136,20 +138,20 @@ public class formNewPasswordAgent extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormNewPasswordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                formNewPasswordAgent dialog = new formNewPasswordAgent(new javax.swing.JFrame(), true);
+                FormNewPasswordAgent dialog = new FormNewPasswordAgent(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -170,4 +172,40 @@ public class formNewPasswordAgent extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNewPassword;
     private javax.swing.JTextField jTextFieldOldPassword;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public javax.swing.JTextField getjTextFieldConfirmNewPassword() {
+        return jTextFieldConfirmNewPassword;
+    }
+
+    public void setjTextFieldConfirmNewPassword(javax.swing.JTextField jTextFieldConfirmNewPassword) {
+        this.jTextFieldConfirmNewPassword = jTextFieldConfirmNewPassword;
+    }
+
+    public javax.swing.JTextField getjTextFieldNewPassword() {
+        return jTextFieldNewPassword;
+    }
+
+    public void setjTextFieldNewPassword(javax.swing.JTextField jTextFieldNewPassword) {
+        this.jTextFieldNewPassword = jTextFieldNewPassword;
+    }
+
+    public javax.swing.JTextField getjTextFieldOldPassword() {
+        return jTextFieldOldPassword;
+    }
+
+    public void setjTextFieldOldPassword(javax.swing.JTextField jTextFieldOldPassword) {
+        this.jTextFieldOldPassword = jTextFieldOldPassword;
+    }
+    
+    
+
+
 }

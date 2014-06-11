@@ -7,7 +7,7 @@
 package controllers;
 
 import logic.SQLOperator;
-import presentation.formNewPasswordAgent;
+import presentation.FormNewPasswordAgent;
 
 /**
  *
@@ -18,7 +18,7 @@ public class agentWindowController {
     private SQLOperator _operator;
     
     public void changePassword(){
-        formNewPasswordAgent forma = new formNewPasswordAgent(null,true);
+        FormNewPasswordAgent forma = new FormNewPasswordAgent(null,true);
         forma.setVisible(true);
     }
     
