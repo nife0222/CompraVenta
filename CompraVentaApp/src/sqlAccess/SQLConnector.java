@@ -16,8 +16,7 @@ import java.sql.SQLException;
  */
 public class SQLConnector {
     public static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; // Ref http://technet.microsoft.com/en-us/library/ms378526.aspx
-    public static final String DBURL = "jdbc:sqlserver://LUISDIEGO\\LDSQL=CompraVentaDolares;username=sa;password=ld1995"; // Ref http://technet.microsoft.com/en-us/library/ms378428.aspx
-
+    public static final String DBURL = "jdbc:sqlserver://CORDERO-LD\\SQLEXPRESS;databaseName=CompraVentaDolares;username=sa;password=ld1995"; // Ref http://technet.microsoft.com/en-us/library/ms378428.aspx
     // Method to create SQLServer connections
     public static Connection createConnection() {
         
