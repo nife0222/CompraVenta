@@ -85,6 +85,12 @@ public class Participant {
     public void setIsDisabled(boolean _isDisabled) {
         this._isDisabled = _isDisabled;
     }
+    public String toString(){
+        String information = "Username:  "+_username+" ";
+        information += "Name: "+_name+" ";
+        information += "Id: "+_id+" ";
+        return information;
+    }
     
     
 }
