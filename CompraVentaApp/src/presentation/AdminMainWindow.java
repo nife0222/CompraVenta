@@ -56,6 +56,11 @@ public class AdminMainWindow extends javax.swing.JFrame {
         jButtonListUsers.setText("List Users");
 
         jButtonSuspendUser.setText("Suspend User");
+        jButtonSuspendUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSuspendUserActionPerformed(evt);
+            }
+        });
 
         jButtonListBoard.setText("List Board");
 
@@ -114,6 +119,10 @@ public class AdminMainWindow extends javax.swing.JFrame {
     private void jButtonChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePasswordActionPerformed
         _Controller.changePassword();
     }//GEN-LAST:event_jButtonChangePasswordActionPerformed
+
+    private void jButtonSuspendUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuspendUserActionPerformed
+        _Controller.suspendUser();
+    }//GEN-LAST:event_jButtonSuspendUserActionPerformed
 
     /**
      * @param args the command line arguments

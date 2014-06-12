@@ -32,7 +32,7 @@ public class SQLOperator {
     
     public boolean tryToSignUp(Participant participant){
         ParticipantDAO participantDAO = new ParticipantDAO();
-        return participantDAO.insertrParticipant(participant); // false si no se inserto porque ya existia el usuario.
+        return participantDAO.insertParticipant(participant); // false si no se inserto porque ya existia el usuario.
     }
     
     public void createAccountsForParticipant(Account account){
@@ -43,6 +43,11 @@ public class SQLOperator {
     public ArrayList<Object> getAllParticipants(){
         ParticipantDAO participantDAO = new ParticipantDAO();
         return participantDAO.getAllParticipants();
+    }
+
+    public boolean changeStateOfParticipant(String pSuspendedUserId) {
+        ParticipantDAO participantDAO = new ParticipantDAO();
+        return participantDAO.changeStateOfParticipant(pSuspendedUserId);
     }
 
   

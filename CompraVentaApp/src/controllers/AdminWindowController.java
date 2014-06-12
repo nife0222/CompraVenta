@@ -68,5 +68,14 @@ public class AdminWindowController {
             return "";
         }
     }
+
+    public void suspendUser() {
+        String suspendedUserId = askForInput("Suspend User","Write the Username ");
+        if(!suspendedUserId.equals("")){
+            if(!_Operator.changeStateOfParticipant(suspendedUserId)){
+                JOptionPane.showMessageDialog(null, "An error ocurred when trying to process data, try again");
+            }
+        }
+    }
     
 }

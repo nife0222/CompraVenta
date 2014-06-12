@@ -6,6 +6,7 @@
 
 package daoClases;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +50,7 @@ public class ParticipantDAO {
         }
     }
     
-    public boolean insertrParticipant(Participant participant) {
+    public boolean insertParticipant(Participant participant) {
         Participant participantToInsert = participant;
         Connection conexion = SQLConnector.createConnection();
         try {
@@ -73,4 +74,18 @@ public class ParticipantDAO {
             return false;
         }
     }
+    public boolean changeStateOfParticipant(String pUserName){
+        try {
+            Connection connection = SQLConnector.createConnection();
+            CallableStatement procedure = connection.prepareCall("{call ddbo.changeStateParticipant(?)}");
+            procedure.setString(1, pUserName);
+            procedure.executeUpdate();
+            procedure.close();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+        
+    }
+    
 }
