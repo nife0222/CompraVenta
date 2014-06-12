@@ -28,14 +28,15 @@ public class AdminWindowController {
         String pWindowTitle = "Change Password";
         String pOrder = "Write your oldPassword";
         String password = askForInput(pWindowTitle,pOrder);
-        if(password!=""){
+        if(!"".equals(password)){
             ExternalUser admin = _Operator.login(_Admin.getUserName(), password, 0);
             if(admin!=null ){
                 String newPassword = askForInput(pWindowTitle, "Write your new password");
-                if(newPassword!=""){
+                if(!"".equals(newPassword)){
                     String confirmPass = askForInput(pWindowTitle,"Write again your new password");
-                    if(newPassword == confirmPass){
+                    if(newPassword.equals(confirmPass)){
                         _Operator.tryToChangePassword(_Admin.getUserName(),newPassword,0);
+                        return;
                     }
                     
                 

@@ -74,14 +74,12 @@ public class ExternalUsersDAO {
         try {
             Connection connection = SQLConnector.createConnection();
             CallableStatement procedure = connection.prepareCall("{call dbo.changeExternalUserPassword(?, ?, ?)}");
-            procedure.setString(1, pPassword);
-            procedure.setString(2, pUsername);
+            procedure.setString(1, pUsername);
+            procedure.setString(2, pPassword);
             procedure.setInt(3,pTypeOfUser);
-            procedure.registerOutParameter(4, Types.INTEGER);
             procedure.executeUpdate();
-            int returnValue = procedure.getInt(4);
             procedure.close();
-            return returnValue == 0;
+            return true;
         } catch (SQLException ex) {
             return false;
         }
