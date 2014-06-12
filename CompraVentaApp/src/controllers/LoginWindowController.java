@@ -35,7 +35,9 @@ public class LoginWindowController {
         }
         else if (typeOfUser.equals("Agent")){
             ExternalUser user = operator.login(pUserName, pPassword, 1);
+            
             if(user != null){
+                System.out.println(user.getUserName());
                 showAgentWindow(user);
                 pLoginWindow.dispose();
             }
@@ -57,7 +59,7 @@ public class LoginWindowController {
      private void showAgentWindow(ExternalUser user) { //Estos metodos no deberian recibir por parametro el ExternalUser?
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         AgentWindow agentWindow  = new AgentWindow(user);
-        agentWindow.show();
+        agentWindow.setVisible(true);
     }
 
     private void loginAsAdmin(String pUserName, String pPassword, int i) {

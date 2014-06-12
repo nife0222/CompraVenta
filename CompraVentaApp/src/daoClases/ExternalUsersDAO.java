@@ -72,6 +72,7 @@ public class ExternalUsersDAO {
         
     public boolean tryToChangePassword(String pUsername,String pPassword,int pTypeOfUser){
         try {
+            System.out.println("Trying to change " + pUsername + " Password to: " + pPassword + " Type of user: " + Integer.toString(pTypeOfUser));
             Connection connection = SQLConnector.createConnection();
             CallableStatement procedure = connection.prepareCall("{call dbo.changeExternalUserPassword(?, ?, ?)}");
             procedure.setString(1, pUsername);

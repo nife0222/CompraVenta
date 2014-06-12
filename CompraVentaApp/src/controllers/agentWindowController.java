@@ -26,6 +26,7 @@ public class agentWindowController {
             
     public agentWindowController(ExternalUser user){
         _user = user;
+        _operator = new SQLOperator();
     }
     
     public void createNewUserAccount (AgentWindow window){
@@ -43,6 +44,14 @@ public class agentWindowController {
     }
     
     public void makeUserMoneyDeposit(AgentWindow window){
+        Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
+        
+        //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario
+        
+        
+    }
+    
+    public void makeUserMoneyWithdraw(AgentWindow window){
         Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
         
         //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario

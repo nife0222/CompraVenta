@@ -21,6 +21,7 @@ public class AgentWindow extends javax.swing.JFrame {
     public AgentWindow(ExternalUser user) {
         _controller = new agentWindowController(user);
         initComponents();
+        this.jLabelWelcome.setText("Welcome: " + user.getUserName());
     }
 
     /**
@@ -36,6 +37,7 @@ public class AgentWindow extends javax.swing.JFrame {
         jButtonCreateNewUserAccount = new javax.swing.JButton();
         jButtonUsersMoneyDeposit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabelWelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agent");
@@ -64,6 +66,8 @@ public class AgentWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Agent Options");
 
+        jLabelWelcome.setText("Welcome: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,7 +82,10 @@ public class AgentWindow extends javax.swing.JFrame {
                             .addComponent(jButtonUsersMoneyDeposit)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelWelcome)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +99,9 @@ public class AgentWindow extends javax.swing.JFrame {
                 .addComponent(jButtonCreateNewUserAccount)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonUsersMoneyDeposit)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addComponent(jLabelWelcome)
+                .addContainerGap())
         );
 
         pack();
@@ -150,5 +159,6 @@ public class AgentWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCreateNewUserAccount;
     private javax.swing.JButton jButtonUsersMoneyDeposit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelWelcome;
     // End of variables declaration//GEN-END:variables
 }

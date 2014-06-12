@@ -22,6 +22,7 @@ public class FormNewPasswordAgentController {
     
     public FormNewPasswordAgentController(ExternalUser pUser){
         _user = pUser;
+        _operator = new SQLOperator();
     }
     
     public void tryToChangePassword(FormNewPasswordAgent form){
@@ -29,6 +30,8 @@ public class FormNewPasswordAgentController {
         String newPassword1 = form.getjTextFieldNewPassword().getText();
         String newPassword2 = form.getjTextFieldConfirmNewPassword().getText();
         
+        System.out.println(_user.getUserName());
+        System.out.println(_user.getPassWord());
         if(newPassword1.equals(newPassword2) && oldPassword.equals(_user.getPassWord())){
             boolean successfulChange;
             successfulChange = _operator.tryToChangePassword(_user.getUserName(), newPassword1, 1);
@@ -36,10 +39,10 @@ public class FormNewPasswordAgentController {
                 _user.setPassWord(newPassword1);
                 JOptionPane.showMessageDialog(form, "Password change was successful");
             }else{
-                JOptionPane.showMessageDialog(form, "The old password is incorrect");
+                JOptionPane.showMessageDialog(form, "unsuccessful password change");
             }
         }else{
-            JOptionPane.showMessageDialog(form, "New passwords dont match, try again");
+            JOptionPane.showMessageDialog(form, "New passwords dont match, try again or the old password is incorrect");
         }
         
     }

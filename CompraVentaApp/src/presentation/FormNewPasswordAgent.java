@@ -23,6 +23,7 @@ public class FormNewPasswordAgent extends javax.swing.JDialog {
     public FormNewPasswordAgent(java.awt.Frame parent, boolean modal, ExternalUser user) {
         super(parent, modal);
         _controller = new FormNewPasswordAgentController(user);
+        System.out.println("Estamos en FormNewPasswordAgent" + user.getUserName());
         initComponents();
     }
 
