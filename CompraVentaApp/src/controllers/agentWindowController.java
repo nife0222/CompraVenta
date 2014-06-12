@@ -13,7 +13,9 @@ import logic.SQLOperator;
 import presentation.AgentWindow;
 import presentation.FormCreateNewUserAccount;
 import presentation.FormNewPasswordAgent;
+import sqlTables.Account;
 import sqlTables.ExternalUser;
+import sqlTables.Participant;
 
 /**
  *
@@ -44,15 +46,17 @@ public class agentWindowController {
     }
     
     public void makeUserMoneyDeposit(AgentWindow window){
-        Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
+        Participant participant = (Participant)preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
         
+        Object[] posibilidades = {new Account(true,0,0,participant.getUsername()), new Account(false,0,0,participant.getUsername())};
+        Account currencyAccount = (Account)preguntarPorOpcionDeLista(posibilidades);
         //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario
         
         
     }
     
     public void makeUserMoneyWithdraw(AgentWindow window){
-        Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
+        Participant participant = (Participant)preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
         
         //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario
         
