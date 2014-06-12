@@ -117,4 +117,5 @@ public class ShowListForm extends javax.swing.JDialog {
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
 }
