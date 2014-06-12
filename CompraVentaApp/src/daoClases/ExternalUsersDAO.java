@@ -63,7 +63,7 @@ public class ExternalUsersDAO {
             procedure.executeUpdate();
             int returnValue = procedure.getInt(4);
             procedure.close();
-            return returnValue ==0;
+            return returnValue == 0;
         } catch (SQLException ex) {
             return false;
         }
@@ -73,11 +73,15 @@ public class ExternalUsersDAO {
     public boolean tryToChangePassword(String pUsername,String pPassword,int pTypeOfUser){
         try {
             Connection connection = SQLConnector.createConnection();
-            
-            //Aqui debo buscar en la BD este ususario y cambiar su contrasena por pPassword
-            
-            connection.close();
-            return 0 == 0;
+            CallableStatement procedure = connection.prepareCall("{call dbo.changeExternalUserPassword(?, ?, ?)}");
+            procedure.setString(1, pPassword);
+            procedure.setString(2, pUsername);
+            procedure.setInt(3,pTypeOfUser);
+            procedure.registerOutParameter(4, Types.INTEGER);
+            procedure.executeUpdate();
+            int returnValue = procedure.getInt(4);
+            procedure.close();
+            return returnValue == 0;
         } catch (SQLException ex) {
             return false;
         }
