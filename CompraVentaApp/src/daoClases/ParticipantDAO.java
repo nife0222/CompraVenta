@@ -30,7 +30,7 @@ public class ParticipantDAO {
         ArrayList <Participant> participants = new ArrayList();
 
         try{  
-            instruccionSQL = conexion.prepareStatement("SELECT * FROM Paises");
+            instruccionSQL = conexion.prepareStatement("SELECT * FROM Participants");
             //instruccionSQL.setFetchSize(100);
             resultados = instruccionSQL.executeQuery();
             Participant participant;

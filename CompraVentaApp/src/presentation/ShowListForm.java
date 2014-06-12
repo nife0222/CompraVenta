@@ -32,6 +32,7 @@ public class ShowListForm extends javax.swing.JDialog {
             listModel.addElement(pObject);
         }
         jList1.setModel(listModel);
+       
     }
 
     /**

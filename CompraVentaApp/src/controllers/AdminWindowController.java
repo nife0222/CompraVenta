@@ -6,8 +6,10 @@
 
 package controllers;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import logic.SQLOperator;
+import presentation.ShowListForm;
 import sqlTables.ExternalUser;
 
 /**
@@ -76,6 +78,11 @@ public class AdminWindowController {
                 JOptionPane.showMessageDialog(null, "An error ocurred when trying to process data, try again");
             }
         }
+    }
+
+    public void listUsers(JFrame pParent) {
+        ShowListForm list = new ShowListForm(pParent,true,_Operator.getAllParticipants());
+        list.setVisible(true);
     }
     
 }
