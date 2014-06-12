@@ -6,9 +6,11 @@
 
 package logic;
 
+import daoClases.AccountDAO;
 import daoClases.ExternalUsersDAO;
 import daoClases.ParticipantDAO;
 import java.util.ArrayList;
+import sqlTables.Account;
 import sqlTables.ExternalUser;
 import sqlTables.Participant;
 
@@ -31,6 +33,11 @@ public class SQLOperator {
     public boolean tryToSignUp(Participant participant){
         ParticipantDAO participantDAO = new ParticipantDAO();
         return participantDAO.insertrParticipant(participant); // false si no se inserto porque ya existia el usuario.
+    }
+    
+    public void createAccountsForParticipant(Account account){
+        AccountDAO accountDAO = new AccountDAO();
+        accountDAO.insertrAccount(account);
     }
     
     public ArrayList<Object> getAllParticipants(){

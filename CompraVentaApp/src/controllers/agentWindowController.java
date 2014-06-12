@@ -43,6 +43,9 @@ public class agentWindowController {
     public void makeUserMoneyDeposit(AgentWindow window){
         Object participant = preguntarPorOpcionDeLista(_operator.getAllParticipants().toArray());
         
+        //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario
+        
+        JOptionPane.showInputDialog("Please, specify the amount of money for the deposit");
         
     }
     

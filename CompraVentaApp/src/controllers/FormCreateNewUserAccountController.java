@@ -9,6 +9,7 @@ package controllers;
 import javax.swing.JOptionPane;
 import logic.SQLOperator;
 import presentation.FormCreateNewUserAccount;
+import sqlTables.Account;
 import sqlTables.Participant;
 
 /**
@@ -33,7 +34,12 @@ public class FormCreateNewUserAccountController {
             Participant participant = new Participant(username,password,name,idNumber,adress,email,false);
             
             if(_operator.tryToSignUp(participant)){
-                JOptionPane.showMessageDialog(form, "Congratulations, the new account was successfully created");
+                JOptionPane.showMessageDialog(form, "Congratulations, the new user was successfully created");
+                //Si se creo la nueva cuenta, entonces ahora hay que crear los accounts del usuario
+                Account ColonesAccount = new Account(true,0,0,participant.getUsername());
+                Account DolarsAccount = new Account(false,0,0,participant.getUsername());
+                _operator.createAccountsForParticipant(ColonesAccount);
+                _operator.createAccountsForParticipant(DolarsAccount);
                 form.dispose();
             }else{
                 JOptionPane.showMessageDialog(form, "ERROR, username already in use");
