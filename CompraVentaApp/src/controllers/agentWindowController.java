@@ -6,6 +6,8 @@
 
 package controllers;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import logic.SQLOperator;
 import presentation.AgentWindow;
@@ -45,7 +47,6 @@ public class agentWindowController {
         
         //Aqui, preguntar por el tipo de moneda, y dependiendo, traer una de las cuentas del usuario
         
-        JOptionPane.showInputDialog("Please, specify the amount of money for the deposit");
         
     }
     
