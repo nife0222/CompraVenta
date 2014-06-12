@@ -88,7 +88,7 @@ public class Participant {
     public String toString(){
         String information = "Username:  "+_username+" ";
         information += "Name: "+_name+" ";
-        information += "Id: "+_id+" ";
+        information += "Person Id: "+_id+" ";
         return information;
     }
     

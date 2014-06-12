@@ -9,6 +9,7 @@ package controllers;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import logic.SQLOperator;
+import presentation.AdminMainWindow;
 import presentation.ShowListForm;
 import sqlTables.ExternalUser;
 
@@ -83,6 +84,38 @@ public class AdminWindowController {
     public void listUsers(JFrame pParent) {
         ShowListForm list = new ShowListForm(pParent,true,_Operator.getAllParticipants());
         list.setVisible(true);
+    }
+
+    public void listBoard(JFrame pFrame) {
+        Object [] orderBy = {"Consecutive number","By amount of money","By acceptable change","Only sales","Only buying offers"};
+        String selectedOrder = getInputByList(orderBy,"List Offers","Select the order");
+        int order = 0;
+        for (int indexOrder =0;indexOrder<orderBy.length;indexOrder++){
+            if(orderBy[indexOrder]==selectedOrder){
+                order = indexOrder;
+                break;
+            }
+        }
+        ShowListForm list = new ShowListForm(pFrame,true,_Operator.listBoard(order));
+        list.setVisible(true);
+       
+    }
+    public String getInputByList(Object []pPosibilities,String pWindowTitle,String pOrder){
+        try{
+            String s = (String)JOptionPane.showInputDialog(
+                                null,
+                                pOrder,
+                                pWindowTitle,
+                                JOptionPane.PLAIN_MESSAGE,
+                                null,
+                                pPosibilities,
+                                0);
+            return s;
+        }catch(Exception e){
+            return "";
+        }
+
+        
     }
     
 }

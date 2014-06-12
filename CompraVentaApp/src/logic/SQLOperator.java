@@ -50,6 +50,10 @@ public class SQLOperator {
         return participantDAO.changeStateOfParticipant(pSuspendedUserId);
     }
 
+    public ArrayList listBoard(int order) {
+        return null;
+    }
+
   
     
 }

@@ -68,6 +68,11 @@ public class AdminMainWindow extends javax.swing.JFrame {
         });
 
         jButtonListBoard.setText("List Board");
+        jButtonListBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListBoardActionPerformed(evt);
+            }
+        });
 
         jButtonBeginCloseNegotiations.setText("Begin/Close Negotiations");
 
@@ -132,6 +137,10 @@ public class AdminMainWindow extends javax.swing.JFrame {
     private void jButtonListUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListUsersActionPerformed
         _Controller.listUsers(this);
     }//GEN-LAST:event_jButtonListUsersActionPerformed
+
+    private void jButtonListBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListBoardActionPerformed
+        _Controller.listBoard(this);
+    }//GEN-LAST:event_jButtonListBoardActionPerformed
 
     /**
      * @param args the command line arguments
