@@ -54,19 +54,17 @@ public class ParticipantDAO {
         Participant participantToInsert = participant;
         Connection conexion = SQLConnector.createConnection();
         try {
-            
-            String instruccionInsercion = "INSERT INTO Participants";
-            String columnasAModificar = "(userName, userPassword, name, personId, adress, email, isDisabled) VALUES(?,?,?,?,?,?,?)";
-            PreparedStatement instruccionSQL  = conexion.prepareStatement(instruccionInsercion+columnasAModificar);
-            instruccionSQL.setString(1, participantToInsert.getUsername());
-            instruccionSQL.setString(2, participantToInsert.getPassword());
-            instruccionSQL.setString(3, participantToInsert.getName());
-            instruccionSQL.setInt(4, participantToInsert.getId());
-            instruccionSQL.setString(5, participantToInsert.getAdress());
-            instruccionSQL.setString(6, participantToInsert.getEmail());
-            instruccionSQL.setBoolean(7, participantToInsert.isIsDisabled());
-            instruccionSQL.executeUpdate();
-            conexion.close();
+            Connection connection = SQLConnector.createConnection();
+            CallableStatement procedure = connection.prepareCall("{call ddbo.insertNewParticipant(?,?,?,?,?,?,?)}");
+            procedure.setString(1, participantToInsert.getUsername());
+            procedure.setString(2, participantToInsert.getPassword());
+            procedure.setString(3, participantToInsert.getName());
+            procedure.setInt(4, participantToInsert.getId());
+            procedure.setString(5, participantToInsert.getAdress());
+            procedure.setString(6, participantToInsert.getEmail());
+            procedure.setBoolean(7, participantToInsert.isIsDisabled());
+            procedure.executeUpdate();
+            procedure.close();
             return true;
         } catch (SQLException ex) {
             System.out.println(participantToInsert.getUsername());
