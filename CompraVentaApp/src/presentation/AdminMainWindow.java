@@ -6,6 +6,8 @@
 
 package presentation;
 
+import controllers.AdminWindowController;
+
 /**
  *
  * @author Luis Diego
@@ -15,9 +17,14 @@ public class AdminMainWindow extends javax.swing.JFrame {
     /**
      * Creates new form AdminMainWindow
      */
-    public AdminMainWindow() {
+    private AdminMainWindow() {
         initComponents();
     }
+    public AdminMainWindow(AdminWindowController pController) {
+        _Controller = pController;
+        initComponents();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,6 +47,11 @@ public class AdminMainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonChangePassword.setText("Change Password");
+        jButtonChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangePasswordActionPerformed(evt);
+            }
+        });
 
         jButtonListUsers.setText("List Users");
 
@@ -99,6 +111,10 @@ public class AdminMainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePasswordActionPerformed
+        _Controller.changePassword();
+    }//GEN-LAST:event_jButtonChangePasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -144,4 +160,6 @@ public class AdminMainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSuspendUser;
     private javax.swing.JButton jButtonViewNegotiations;
     // End of variables declaration//GEN-END:variables
+    private AdminWindowController _Controller;
+
 }

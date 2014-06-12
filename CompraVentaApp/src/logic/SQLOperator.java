@@ -44,5 +44,7 @@ public class SQLOperator {
         ParticipantDAO participantDAO = new ParticipantDAO();
         return participantDAO.getAllParticipants();
     }
+
+  
     
 }

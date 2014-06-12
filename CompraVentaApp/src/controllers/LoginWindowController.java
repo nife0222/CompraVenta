@@ -8,6 +8,7 @@ package controllers;
 
 import javax.swing.JOptionPane;
 import logic.SQLOperator;
+import presentation.AdminMainWindow;
 import presentation.AgentWindow;
 import presentation.LoginWindow;
 import sqlTables.ExternalUser;
@@ -48,7 +49,9 @@ public class LoginWindowController {
     
 
     private void showAdministratorWindow(ExternalUser pAdmin) {
-        System.out.println("hola1");
+        AdminWindowController controller = new AdminWindowController (pAdmin);
+        AdminMainWindow adminWindow = new AdminMainWindow(controller);
+        adminWindow.setVisible(true);
     }
     
      private void showAgentWindow(ExternalUser user) { //Estos metodos no deberian recibir por parametro el ExternalUser?
