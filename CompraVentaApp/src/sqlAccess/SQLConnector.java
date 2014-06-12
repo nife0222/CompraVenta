@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class SQLConnector {
     public static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; // Ref http://technet.microsoft.com/en-us/library/ms378526.aspx
-    public static final String DBURL = "jdbc:sqlserver://CORDERO-LD\\SQLEXPRESS;databaseName=CompraVentaDolares;username=sa;password=ld1995"; // Ref http://technet.microsoft.com/en-us/library/ms378428.aspx
+    public static final String DBURL = "jdbc:sqlserver://CORDERO\\SQLEXPRESS;databaseName=CompraVentaDolares;username=sa;password=ld1995"; // Ref http://technet.microsoft.com/en-us/library/ms378428.aspx
     // Method to create SQLServer connections
     public static Connection createConnection() {
         
@@ -32,7 +32,6 @@ public class SQLConnector {
         } 
         catch(SQLException ex) {
             System.out.println("Message: " + ex.getMessage() + "\n" + "Code: " + ex.getErrorCode());
-            System.out.println("CAYO AQUI 2");
         }
         
         return conn;
